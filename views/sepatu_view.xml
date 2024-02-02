@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- abc.sepatu kanban view -->
+    <record id="abc_sepatu_view_kanban" model="ir.ui.view">
+            <field name="name">abc.sepatu.view.kanban</field>
+            <field name="model">abc.sepatu</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1">
+                            <field name="id_sepatu"/>
+                            <field name="nama_sepatu"/>
+                            <field name="ukuran_sepatu"/>
+                            <field name="warna_sepatu"/>
+                            <field name="harga_sepatu"/>
+                            <field name="waktu_produksi"/>
+                            <field name="stok"/>
+                            <field name="jenis_bahan_sepatu"/>
+                        <templates>
+                            <t t-name="kanban-box">
+                                <div t-attf-class="oe_kanban_global_click">
+                                    <div class="o_kanban_image">
+                                            <field name="image" widget="image" class="oe_left oe_avatar" options='{"preview_image": "image"}'/>
+                                    </div>
+                                    <div class="o_kanban_content">
+                                        <div> 
+                                            <strong class="o_kanban_header">
+                                            <field name="id_sepatu"/>
+                                            </strong>
+                                        </div>
+                                        <div class="o_kanban_fields">
+                                            Shoes Name : <field name="nama_sepatu"/>
+                                        </div>
+                                        <div class="o_kanban_fields">
+                                            Size : <field name="ukuran_sepatu"/>
+                                        </div>
+                                        <div class="o_kanban_fields">
+                                            Color : <field name="warna_sepatu"/>
+                                        </div>
+                                        <div class="o_kanban_fields">
+                                            Price : <field name="harga_sepatu"/>
+                                        </div>
+                                        <div class="o_kanban_fields">
+                                            Production Time :<field name="waktu_produksi"/>
+                                        </div>
+                                        <div class="o_kanban_fields">
+                                            Stok : <field name="stok"/>
+                                        </div>
+                                        <div class="o_kanban_fields">
+                                            Bahan : <field name="jenis_bahan_sepatu"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                field: <field name="nama_sepatu"/>
+                                <field name="id_sepatu"/>
+                                <field name="nama_sepatu"/>
+                                <field name="ukuran_sepatu"/>
+                                <field name="warna_sepatu"/>
+                                <field name="harga_sepatu"/>
+                                <field name="waktu_produksi"/>
+                                <field name="stok"/>
+                                <field name="jenis_bahan_sepatu"/>
+                                </strong>
+                            
+                          </div> -->
+                                
+                            </t>
+                        </templates>
+                    </kanban>
+            </field>
+    </record>
+
+    <!-- abc.sepatu tree view -->
+    <record id="abc_sepatu_view_tree" model="ir.ui.view">
+        <field name="name">abc.sepatu.view.tree</field>
+        <field name="model">abc.sepatu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="id_sepatu"/>
+                <field name="nama_sepatu"/>
+                <field name="ukuran_sepatu"/>
+                <field name="warna_sepatu"/>
+                <field name="harga_sepatu"/>
+                <field name="waktu_produksi"/>
+                <field name="stok"/>
+                <field name="jenis_bahan_sepatu"/>  
+                <!-- Add more fields as needed -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- abc_sepatu form view -->
+    <!-- ... other views ... -->
+
+<!-- abc_sepatu form view -->
+<record id="abc_sepatu_view_form" model="ir.ui.view">
+    <field name="name">abc.sepatu.view.form</field>
+    <field name="model">abc.sepatu</field>
+    <field name="arch" type="xml">
+        <form string="Sepatu Form">
+            <sheet>
+                <group col='2'>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="id_sepatu"/>
+                        <field name="nama_sepatu"/>
+                        <field name="ukuran_sepatu"/>
+                        <field name="warna_sepatu"/>
+                        <field name="harga_sepatu"/>
+                        <field name="waktu_produksi"/>
+                        <field name="stok"/>
+                    </group>
+                    <group>
+                            <field name="image" widget="image" class="oe_left oe_avatar" options='{"preview_image": "image"}'/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Additional Information">
+                        <group>
+                            <field name="jenis_bahan_sepatu" />
+                            <!-- Add more fields as needed -->
+                            <!-- <button string="Report" type="action" name="report_pabrikabc_sepatu_xlsx" class="oe_highlight"/> -->
+                            <button name="%(report_pabrikabc_sepatu_xlsx)d" type="action" string="Report Excel" class="btn btn-danger"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- ... other views ... -->
+
+    <!-- Sequence -->
+    <record id="sequence_sepatu" model="ir.sequence">
+        <field name="name">Sepatu Seq</field>
+        <field name="code">abc.sepatu</field>
+        <field name="prefix">SEPATU-</field>
+        <field name="padding">4</field>
+        <field name="implementation">no_gap</field>
+    </record>
+    <!-- Sequence -->
+
+
+    <!-- abc.sepatu action window -->
+    <record id="abc_sepatu_action" model="ir.actions.act_window">
+        <field name="name">Daftar Sepatu</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">abc.sepatu</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="pabrikabc_sepatu_sepatu_menu_act"
+              name="Daftar Sepatu"
+              parent="pabrikabc_sepatu_menu_categ"
+              action="abc_sepatu_action"
+              sequence="5"/>
+</odoo>

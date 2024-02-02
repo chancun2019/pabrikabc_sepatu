@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Actions -->
+    <record id="action_abc_customer" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="res_model">abc.customers</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menuitem -->
+    <menuitem id="pabrikabc_menu_customer" 
+        name="Customer" 
+        sequence="40"
+        parent="pabrikabc_menu_root" 
+        action="action_abc_customer"/>
+</odoo>

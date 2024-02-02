@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- abc.pegawai.kebersihan tree view -->
+    <record id="abc_pegawai_kebersihan_view_tree" model="ir.ui.view">
+        <field name="name">abc.pegawai.kebersihan.view.tree</field>
+        <field name="model">abc.pegawai</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="nama_manusia"/>
+                <field name="gender"/>
+                <field name="alamat"/>
+                <field name="ref"/>
+                <field name="bagian"/>
+                <field name="gaji"/>
+                <!-- <field name="foto" widget='image'/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- abc.pegawai.kebersihan form view -->
+    <record id="abc_pegawai_kebersihan_view_form" model="ir.ui.view">
+        <field name="name">abc.pegawai.kebersihan.view.form</field>
+        <field name="model">abc.pegawai</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <field name="foto" widget="image" class="oe_right oe_avatar" options='{"web.image": true}'/>
+                    <div class="oe_title">
+                        <label for="nama_manusia" string="Nama Pegawai"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="o_text_overflow" name="nama_manusia" />
+                            </div>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page name="general" string="Data Umum">
+                            <group>
+                                <field name="gender"/>
+                                <field name="alamat"/>
+                                <field name="ref"/>
+                                <field name="bagian"/>
+                            </group>
+                        </page>
+                        <page name="salary" string="Gaji">
+                            <group>
+                                <field name="gaji"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- abc.pegawai.kebersihan action window -->
+    <record id="abc_pegawai_kebersihan_action" model="ir.actions.act_window">
+        <field name="name">Karyawan Kebersihan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">abc.pegawai</field> <!-- Update the model name here -->
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('bagian', '=', 'kebersihan')]</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pabrikabc_pegawai_kebersihan_menu_act" 
+            name="Daftar Karyawan Kebersihan" 
+            parent="pabrikabc_karyawan_menu_categ" 
+            action="abc_pegawai_kebersihan_action" 
+            sequence="15"/>
+</odoo>

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- abc_pembelian_bahan_sepatu tree view -->
+    <record id="abc_pembelian_bahan_sepatu_view_tree" model="ir.ui.view">
+        <field name="name">abc.pembelian.bahan.sepatu.view.tree</field>
+        <field name="model">abc.pembelian.bahan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Use the actual field name -->
+                <field name="tanggal_pembelian"/>
+                <field name="kode_pembelian"/>
+                <field name="id_supplier"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- abc_pembelian_bahan_sepatu form view -->
+    <record id="abc_pembelian_bahan_sepatu_view_form" model="ir.ui.view">
+    <field name="name">abc.pembelian.bahan.sepatu.view.form</field>
+    <field name="model">abc.pembelian.bahan</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <header>
+                <button name="confirm_pembelian" string="Confirm Pembelian" type="object" class="oe_highlight"/>
+            </header>
+            <sheet>
+                <div class="oe_title">
+                    <label for="kode_pembelian" string="Kode Pembelian"/>
+                    <h1>
+                        <div class="d-flex">
+                            <field class="o_text_overflow" name="kode_pembelian" />
+                        </div>
+                    </h1>
+                </div>
+                <group col='2'>
+                    <group>
+                        <field name="tanggal_pembelian"/>
+                        <field name="id_supplier"/>
+                    </group>
+                    <group>
+                        <field name="qr_code_pembelian" widget="image" attrs="{'invisible': [('state', '!=', 'done')]}" />
+                        <button name="action_generate_pdf_report" string="Report as PDF" type="object" class="btn btn-danger"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="state" invisible="1"/>
+                </group>
+                <notebook>
+                    <page name="line" string="Line">
+                        <field name="pembelian_bahan_line">
+                            <tree editable="bottom">
+                                <field name="nama_bahan_sepatu"/>
+                                <field name="qty_beli"/>
+                                <field name="modal"/>
+                                <field name="bayar" />
+                            </tree>
+
+                            <form>
+                                <field name="nama_bahan_sepatu"/>
+                                <field name="qty_beli"/>
+                                <field name="modal"/>
+                                <field name="bayar" />
+                            </form>
+                        </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Sequence -->
+    <record id="sequence_pembelian_bahan" model="ir.sequence">
+        <field name="name">Pembelian Bahan Seq</field>
+        <field name="code">abc.pembelian.bahan</field>
+        <field name="prefix">PURCHASE-RAW-MATERIAL-</field>
+        <field name="padding">4</field>
+        <field name="implementation">no_gap</field>
+    </record>
+    <!-- Sequence -->
+
+    <!-- model.name action window -->
+    <record id="abc_pembelian_bahan_sepatu_action" model="ir.actions.act_window">
+        <field name="name">Pembelian Bahan Sepatu</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">abc.pembelian.bahan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pabrikabc_pembelian_bahan_sepatu_menu_act" 
+            name="Pembelian Bahan Sepatu" 
+            parent="pabrikabc_transaksi_menu_categ" 
+            action="abc_pembelian_bahan_sepatu_action" 
+            sequence="15"/>
+</odoo>

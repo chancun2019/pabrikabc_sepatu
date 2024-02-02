@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- abc.bahan_sepatu tree view -->
+    <record id="abc_bahan_sepatu_view_tree" model="ir.ui.view">
+        <field name="name">abc.bahan.sepatu.view.tree</field>
+        <field name="model">abc.bahan.sepatu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="nama_bahan_sepatu"/>
+                <field name="stok"/>
+                <field name="current_stock"/>
+                <field name="ukuran_satuan" />
+                <field name="harga_modal_bahan_sepatu"/>
+                <!-- <field name="nama_sepatu"/> -->
+                <!-- Add more fields as needed -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- abc_bahan_sepatu form view -->
+    <record id="abc_bahan_sepatu_view_form" model="ir.ui.view">
+        <field name="name">abc.bahan.sepatu.view.form</field>
+        <field name="model">abc.bahan.sepatu</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="nama_bahan_sepatu" string="Nama Bahan Sepatu"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="o_text_overflow" name="nama_bahan_sepatu" />
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <!-- Add your fields here -->
+                    <field name="stok"/>
+                    <field name="current_stock"/>
+                    <field name="ukuran_satuan" />
+                    <field name="deskripsi" />
+                    <field name="harga_modal_bahan_sepatu"/>
+                    </group>
+                    <notebook>
+                        <page name="list_sepatu" string="List Sepatu">
+                            <field name="nama_sepatu"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- abc.bahan_sepatu action window -->
+    <record id="abc_bahan_sepatu_action" model="ir.actions.act_window">
+        <field name="name">Daftar Bahan Sepatu</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">abc.bahan.sepatu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pabrikabc_bahan_sepatu_menu_act"
+              name="Daftar Bahan Sepatu"
+              parent="pabrikabc_sepatu_menu_categ"
+              action="abc_bahan_sepatu_action"
+              sequence="10"/>
+</odoo>

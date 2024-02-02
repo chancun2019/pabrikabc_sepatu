@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_pembelian_bahan_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Add your report content here -->
+                        <h2>
+                            <p>Pembelian Bahan PDF Report</p>
+                            </h2>
+                        <p>Kode Pembelian: <span t-field="o.kode_pembelian"/></p>
+                        <p>Tanggal Pembelian: <span t-field="o.tanggal_pembelian"/></p>
+                        <p>Supplier: <span t-field="o.id_supplier.name"/></p>
+
+                        <!-- Add QR Code here if needed -->
+
+                        <!-- Example: Displaying pembelian bahan line details as a table -->
+                        <table border="1" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nama Bahan Sepatu</th>
+                                    <th>Quantity Pembelian</th>
+                                    <th>Harga Beli</th>
+                                    <th>Bayar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.pembelian_bahan_line" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.nama_bahan_sepatu.name"/></td>
+                                        <td><span t-field="line.qty_beli"/></td>
+                                        <td><span t-field="line.modal"/></td>
+                                        <td><span t-field="line.bayar"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

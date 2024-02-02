@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_penjualan_pdf_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Add your report content here -->
+                        <h2>Penjualan PDF Report</h2>
+                        <p>Reference No: <span t-field="o.reference_no"/></p>
+                        <p>Transaction Date: <span t-field="o.transaction_date"/></p>
+                        <p>Customer: <span t-field="o.customer_id.name"/></p>
+
+                        <!-- Add QR Code here if needed -->
+
+                        <!-- Example: Displaying penjualan line details as a table -->
+                        <table border="1" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.penjualan_line" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.nama_sepatu.name"/></td>
+                                        <td><span t-field="line.qty"/></td>
+                                        <td><span t-field="line.harga"/></td>
+                                        <td><span t-field="line.subtotal"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

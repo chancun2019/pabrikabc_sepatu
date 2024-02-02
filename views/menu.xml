@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="pabrikabc_menu_root" 
+            name="Pabrik ABC" 
+            sequence="5"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="pabrikabc_sepatu_menu_categ" 
+            name="Daftar Sepatu" 
+            parent="pabrikabc_menu_root" 
+            sequence="10"/>   
+
+        <!-- This Menu Item Must have a parent  -->
+        <menuitem id="pabrikabc_karyawan_menu_categ" 
+            name="Daftar Karyawan" 
+            parent="pabrikabc_menu_root" 
+            sequence="15"/>
+
+        <menuitem id="pabrikabc_transaksi_menu_categ" 
+            name="Transaksi" 
+            parent="pabrikabc_menu_root" 
+            sequence="20"/>    
+
+        <menuitem id="pabrikabc_supplier_menu_categ" 
+            name="Supplier" 
+            parent="pabrikabc_menu_root" 
+            sequence="25"/>
+
+    
+    </odoo>

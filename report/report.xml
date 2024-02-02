@@ -1,0 +1,23 @@
+<odoo>
+    <!-- report sepatu excel -->
+    <record id="report_pabrikabc_sepatu_xlsx" model="ir.actions.report">
+        <field name="name">Daftar Sepatu Excel</field>
+        <field name="model">abc.sepatu</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">pabrikabc.report_sepatu_xlsx</field>
+        <field name="report_file">pabrikabc.report_sepatu_xlsx</field>
+        <field name="binding_model_id" ref="model_abc_sepatu"/>
+        <field name="binding_type">report</field> 
+    </record>
+
+    <!-- report penjualan pdf -->
+    <!-- <record id="report_penjualan_pdf" model="ir.actions.report">
+        <field name="name">Penjualan PDF Report</field>
+        <field name="model">abc.penjualan.header</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pabrikabc.report_penjualan_pdf</field>
+        <field name="report_file">pabrikabc.report_penjualan_pdf</field>
+        <field name="binding_model_id" ref="model_abc_penjualan_header"/>
+        <field name="binding_type">report</field> 
+    </record> -->
+</odoo>

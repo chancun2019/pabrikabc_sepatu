@@ -1,0 +1,11 @@
+id,name,model_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_abc_sepatu,access.abc.sepatu,model_abc_sepatu,1,1,1,1
+access_abc_bahan_sepatu,access.abc.bahan_sepatu,model_abc_bahan_sepatu,1,1,1,1
+access_abc_manusia,access.abc.manusia,model_abc_manusia,1,1,1,1
+access_abc_pegawai,access.abc.pegawai,model_abc_pegawai,1,1,1,1
+access_abc_supplier,access.abc.supplier,model_abc_supplier,1,1,1,1
+access_pembelian_bahan,access.pembelian.bahan,model_abc_pembelian_bahan,1,1,1,1
+access_pembelian_bahan_line,access.pembelian.bahan.line,model_abc_pembelian_bahan_line,1,1,1,1
+access_customers,access.customers,model_abc_customers,1,1,1,1
+access_sales_header,access.sales.header,model_abc_penjualan_header,1,1,1,1
+access_sales_line,access.sales.line,model_abc_penjualan_line,1,1,1,1

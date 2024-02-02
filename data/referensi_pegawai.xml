@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="seq_ref_pegawai_kasir" model="ir.sequence">
+        <field name="name">Referensi pegawai Kasir</field>
+        <field name="code">referensi.pegawaikasir</field>
+        <field name="prefix">KR</field>
+        <field name="padding">3</field>
+        <field name="suffix">KS</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_ref_pegawai_akunting" model="ir.sequence">
+        <field name="name">Referensi Pegawai Akunting</field>
+        <field name="code">referensi.pegawaiakunting</field>
+        <field name="prefix">KR</field>
+        <field name="padding">3</field>
+        <field name="suffix">AK</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_ref_pegawai_kebersihan" model="ir.sequence">
+        <field name="name">Referensi pegawai Kebersihan</field>
+        <field name="code">referensi.pegawaikebersihan</field>
+        <field name="prefix">KR</field>
+        <field name="padding">3</field>
+        <field name="suffix">BS</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    
+
+</odoo>
